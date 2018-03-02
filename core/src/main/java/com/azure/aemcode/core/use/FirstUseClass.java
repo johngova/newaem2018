@@ -8,5 +8,7 @@ public class FirstUseClass extends WCMUsePojo{
 	public void activate() throws Exception {
         hi= "this is my first use class  written by gova";
 		
+        
+        
 	}
 }
