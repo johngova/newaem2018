@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.0.0">
     <scr:component name="com.azure.aemcode.core.servlets.AccessControlServlet">
         <implementation class="com.azure.aemcode.core.servlets.AccessControlServlet"/>
         <service servicefactory="false">
