@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.0.0">
+    <scr:component name="com.azure.aemcode.core.preprocessor.AzurePreProcessor">
+        <implementation class="com.azure.aemcode.core.preprocessor.AzurePreProcessor"/>
+        <property name="service.vendor" value="Adobe"/>
+        <property name="service.pid" value="com.azure.aemcode.core.preprocessor.AzurePreProcessor"/>
+    </scr:component>
+</components>

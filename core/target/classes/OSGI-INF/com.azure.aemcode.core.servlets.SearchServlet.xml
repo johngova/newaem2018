@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component name="com.azure.aemcode.core.servlets.SearchServlet" activate="activate" modified="activate">
+        <implementation class="com.azure.aemcode.core.servlets.SearchServlet"/>
+        <service servicefactory="false">
+            <provide interface="javax.servlet.Servlet"/>
+        </service>
+        <property name="sling.servlet.paths">
+            /bin/search
+        </property>
+        <property name="sling.servlet.methods">
+            POST
+        </property>
+        <property name="property.search.paths"/>
+        <property name="service.vendor" value="Adobe"/>
+        <property name="service.pid" value="com.azure.aemcode.core.servlets.SearchServlet"/>
+        <reference name="searchService" interface="com.azure.aemcode.core.search.custom.service.SearchService" cardinality="1..1" policy="static" bind="bindSearchService" unbind="unbindSearchService"/>
+    </scr:component>
+</components>

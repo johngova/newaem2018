@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>aemcode - UI content</comment>
+<entry key="createdBy">Madhuri</entry>
+<entry key="name">aemcode.ui.content</entry>
+<entry key="created">2016-11-28T22:15:28.061+0530</entry>
+<entry key="groupId">com.azure</entry>
+<entry key="version">0.0.1-SNAPSHOT</entry>
+<entry key="requiresRoot">false</entry>
+<entry key="group">aemcode Content Package</entry>
+<entry key="description">UI content package for aemcode</entry>
+<entry key="artifactId">aemcode.ui.content</entry>
+<entry key="path">/etc/packages/aemcode Content Package/aemcode.ui.content.zip</entry>
+</properties>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/com.azure.aemcode.core.filters.customfilter.AzureServletFilter">
+    <OCD id="com.azure.aemcode.core.filters.customfilter.AzureServletFilter" name="%com.azure.aemcode.core.filters.customfilter.AzureServletFilter.name" description="%com.azure.aemcode.core.filters.customfilter.AzureServletFilter.description">
+        <AD id="property.osgi.test" type="String" name="%com.azure.aemcode.core.filters.customfilter.AzureServletFilter.property.osgi.test.name" description="%com.azure.aemcode.core.filters.customfilter.AzureServletFilter.property.osgi.test.description"/>
+    </OCD>
+    <Designate pid="com.azure.aemcode.core.filters.customfilter.AzureServletFilter">
+        <Object ocdref="com.azure.aemcode.core.filters.customfilter.AzureServletFilter"/>
+    </Designate>
+</metatype:MetaData>

@@ -1,0 +1,19 @@
+NOTE: The coral UI changed for every version of AEM (6.0, 6.1, 6.2). Make Sure to choose the proper version for development.
+
+Basic Definitions: 
+	- Coral UI : The coral UI is proprietary UI language by Adobe. This UI works on CSS classes. When a CSS class is set on a UI element, based on the class the rendering will happen.
+	- Granite UI : Granite UI is implementation of coral UI. The Coral UI is UI element and granite UI uses coral UI to implement specific functionality. Ex: All OOTB components under "/libs/granite/ui/components/coral/foundation/form" uses granite UI. Check the render.jsp for more clarity.
+
+
+
+
+==========================================================================
+
+								Coral UI
+==========================================================================
+
+1) This is used to create UI elements:
+	References: (AEM 6.2) - https://docs.adobe.com/docs/en/aem/6-2/develop/ref/coral-ui/home/
+	 for components : https://docs.adobe.com/docs/en/aem/6-2/develop/ref/coral-ui/components/
+	 
+	 Implementation: Create a data-source and in the data-source JSP this UI can be directly used to create any elements on Screen. Refer to wizard in the aemcode.

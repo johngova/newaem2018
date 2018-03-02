@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component name="com.azure.aemcode.core.servlets.AccessControlServlet">
+        <implementation class="com.azure.aemcode.core.servlets.AccessControlServlet"/>
+        <service servicefactory="false">
+            <provide interface="javax.servlet.Servlet"/>
+        </service>
+        <property name="sling.servlet.paths">
+            /bin/setAccessControl
+        </property>
+        <property name="sling.servlet.methods">
+            GET
+        </property>
+        <property name="service.vendor" value="Adobe"/>
+        <property name="service.pid" value="com.azure.aemcode.core.servlets.AccessControlServlet"/>
+        <reference name="accessControlService" interface="com.azure.aemcode.core.accesscontrol.AccessControlService" cardinality="1..1" policy="static" bind="bindAccessControlService" unbind="unbindAccessControlService"/>
+    </scr:component>
+</components>

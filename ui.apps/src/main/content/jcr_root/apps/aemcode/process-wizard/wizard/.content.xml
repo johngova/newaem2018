@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:mixinTypes="[sling:VanityPath]"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Process Assets Wizard"
+        sling:resourceType="granite/ui/components/coral/foundation/page">
+        <head jcr:primaryType="nt:unstructured">
+            <viewport
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/admin/page/viewport"/>
+            <favicon
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/page/favicon"/>
+            <clientlibs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
+                categories="[coralui2,granite.ui.coral.foundation,granite.ui.coral.foundation.addon.coral2]"/>
+        </head>
+        <body
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/page/body">
+            <items
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="com/kyocera/kdag/web/dam/processwizard">
+                <form
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/form"
+                    action="/apps/kdag-web/dam/process-wizard/wizard/jcr:content/body/items"
+                    foundationForm="{Boolean}true"
+                    loadingMask="true"
+                    maximized="{Boolean}true"
+                    method="post"
+                    novalidate="{Boolean}true"
+                    style="vertical">
+                    <successresponse
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Success"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/responses/openprompt"
+                        open="/assets.html${granite:encodeURIPath(requestPathInfo.suffix)}"
+                        redirect="/assets.html${granite:encodeURIPath(requestPathInfo.suffix)}"
+                        text="Assets have been processed"/>
+                    <items jcr:primaryType="nt:unstructured">
+                        <charset
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
+                            name="_charset_"
+                            value="utf-8"/>
+                        <retrieve-data
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="com/kyocera/kdag/web/dam/retrievedata"/>
+                        <wizard
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Process Assets Wizard"
+                            sling:resourceType="granite/ui/components/coral/foundation/wizard"
+                            cancelHref="/assets.html${granite:encodeURIPath(requestPathInfo.suffix)}">
+                            <items jcr:primaryType="nt:unstructured">
+                                <update-step
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Update Assets"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <title
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/section">
+                                            <layout
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                                margin="{Boolean}false"/>
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <column
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/container">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <update-asset-binary-file
+                                                            jcr:primaryType="nt:unstructured"
+                                                            jcr:title="Update Asset - Binary File"
+                                                            sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <fieldset
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                                                                    <layout
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <column
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/foundation/container">
+                                                                            <items jcr:primaryType="nt:unstructured">
+                                                                                <update-asset-binary-file
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                                                    name="./updateAssetBinaryFile"
+                                                                                    text="Update Asset - Binary File"
+                                                                                    value="true">
+                                                                                    <granite:rendercondition
+                                                                                        jcr:primaryType="nt:unstructured"
+                                                                                        sling:resourceType="granite/ui/components/coral/foundation/renderconditions/simple"
+                                                                                        expression="${!granite:contains(requestPathInfo.suffix, '/uploads')}"/>
+                                                                                </update-asset-binary-file>
+                                                                                <update-asset-binary-file-disable
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                                                    disabled="{Boolean}true"
+                                                                                    name="./updateAssetBinaryFile"
+                                                                                    text="Update Asset - Binary File"
+                                                                                    value="true">
+                                                                                    <granite:rendercondition
+                                                                                        jcr:primaryType="nt:unstructured"
+                                                                                        sling:resourceType="granite/ui/components/coral/foundation/renderconditions/simple"
+                                                                                        expression="${granite:contains(requestPathInfo.suffix, '/uploads')}"/>
+                                                                                </update-asset-binary-file-disable>
+                                                                                <u-pdate-asset-binary-file-enable-others
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                                                    name="./updateAssetBinaryFile"
+                                                                                    text="Update Asset - Binary File"
+                                                                                    value="true">
+                                                                                    <granite:rendercondition
+                                                                                        jcr:primaryType="nt:unstructured"
+                                                                                        sling:resourceType="granite/ui/components/coral/foundation/renderconditions/simple"
+                                                                                        expression="${granite:contains(requestPathInfo.suffix, '/uploads/processed')}"/>
+                                                                                </u-pdate-asset-binary-file-enable-others>
+                                                                            </items>
+                                                                        </column>
+                                                                    </items>
+                                                                </fieldset>
+                                                            </items>
+                                                        </update-asset-binary-file>
+                                                        <renameassets
+                                                            jcr:primaryType="nt:unstructured"
+                                                            jcr:title="Rename Asset"
+                                                            sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <fieldset
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                                                                    <layout
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <column
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/foundation/container">
+                                                                            <items jcr:primaryType="nt:unstructured">
+                                                                                <rename-asset-filename
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                                                    name="./renameAssetFilename"
+                                                                                    text="Rename Asset FileName"
+                                                                                    value="true"/>
+                                                                                <new-filename
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                                    fieldDescription="Enter new name for the file"
+                                                                                    fieldLabel="New Filename"
+                                                                                    name="./newFileName"/>
+                                                                            </items>
+                                                                        </column>
+                                                                    </items>
+                                                                </fieldset>
+                                                            </items>
+                                                        </renameassets>
+                                                        <relatedassets
+                                                            jcr:primaryType="nt:unstructured"
+                                                            jcr:title="Related Assets"
+                                                            sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <related-assets
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="kdag-web/dam/process-wizard/components/related-assets">
+                                                                    <field
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                                        name="./relatedAssets"
+                                                                        rootPath="/content/dam/kdc/kdag"/>
+                                                                </related-assets>
+                                                            </items>
+                                                        </relatedassets>
+                                                    </items>
+                                                </column>
+                                            </items>
+                                        </title>
+                                    </items>
+                                    <parentConfig jcr:primaryType="nt:unstructured">
+                                        <next
+                                            granite:class="foundation-wizard-control"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/button"
+                                            text="Next"
+                                            variant="primary">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                foundation-wizard-control-action="next"/>
+                                        </next>
+                                    </parentConfig>
+                                </update-step>
+                                <esite-step
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="eSite Selection"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <section
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/section">
+                                            <layout
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                                margin="{Boolean}false"/>
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <column
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/container">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <esite-list
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="kdag-web/dam/process-wizard/components/esite-select">
+                                                            <datasource
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="kdag-web/dam/process-wizard/datasource/esite-datasource"/>
+                                                        </esite-list>
+                                                    </items>
+                                                </column>
+                                            </items>
+                                        </section>
+                                    </items>
+                                    <parentConfig jcr:primaryType="nt:unstructured">
+                                        <next
+                                            granite:class="foundation-wizard-control"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/button"
+                                            text="Next"
+                                            variant="primary">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                foundation-wizard-control-action="next"/>
+                                        </next>
+                                    </parentConfig>
+                                </esite-step>
+                                <product-step
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Product Selection"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <section
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/section">
+                                            <layout
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                                margin="{Boolean}false"/>
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <column
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/container">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <product-selection
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="kdag-web/dam/process-wizard/components/product-select"
+                                                            sections="[mc_hardware]">
+                                                            <datasource
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="kdag-web/dam/process-wizard/datasource/products-datasource"/>
+                                                        </product-selection>
+                                                    </items>
+                                                </column>
+                                            </items>
+                                        </section>
+                                    </items>
+                                    <parentConfig jcr:primaryType="nt:unstructured">
+                                        <next
+                                            granite:class="foundation-wizard-control"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/button"
+                                            text="Next"
+                                            variant="primary">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                foundation-wizard-control-action="next"/>
+                                        </next>
+                                    </parentConfig>
+                                </product-step>
+                                <acl-step
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Access Control"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <section
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/section">
+                                            <layout
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                                margin="{Boolean}false"/>
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <column
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/container">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <acl-List
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="kdag-web/dam/process-wizard/components/acl-select"
+                                                            aclLibraryPath="[/etc/kdag-web/libraries/kda/kyocera/us/en/acl/member-attributes]">
+                                                            <datasource
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="kdag-web/dam/process-wizard/datasource/acl-datasource"/>
+                                                        </acl-List>
+                                                    </items>
+                                                </column>
+                                            </items>
+                                        </section>
+                                    </items>
+                                    <parentConfig jcr:primaryType="nt:unstructured">
+                                        <next
+                                            granite:class="foundation-wizard-control"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/button"
+                                            text="Next"
+                                            variant="primary">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                foundation-wizard-control-action="next"/>
+                                        </next>
+                                    </parentConfig>
+                                </acl-step>
+                                <metadata-step
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Asset Metadata"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <section
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/section">
+                                            <layout
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+                                                margin="{Boolean}false"/>
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <column
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/container">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <metadataeditor
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="dam/gui/coral/components/admin/metadataeditor"/>
+                                                        <update-metadata-fields
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="kdag-web/dam/process-wizard/components/include-metadata-schema"/>
+                                                        <col2
+                                                            granite:class="align-in-column active"
+                                                            granite:id="aem-assets-metadataeditor-formid"
+                                                            granite:rel="data-fields"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="dam/gui/coral/components/admin/propertiesform"
+                                                            action="${requestPathInfo.suffix}"
+                                                            dataPath="${requestPathInfo.suffix}"
+                                                            foundationForm="{Boolean}false"
+                                                            method="post"
+                                                            style="vertical">
+                                                            <granite:data
+                                                                jcr:primaryType="nt:unstructured"
+                                                                foundation-mode-group="aem-assets-admin-properties"/>
+                                                            <datasource
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="dam/gui/coral/components/admin/propertiesform/datasource"/>
+                                                        </col2>
+                                                        <contentpath
+                                                            granite:rel="foundation-content-path hidden"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                            <granite:data
+                                                                jcr:primaryType="nt:unstructured"
+                                                                is-bulk-mode="${empty paramValues[&quot;item&quot;][1] ? &quot;false&quot; : &quot;true&quot;}"
+                                                                popover-path="${granite:relativeParent(requestPathInfo.resourcePath, 4)}/bulkeditsoftsubmitpopover.html"/>
+                                                        </contentpath>
+                                                        <dialogembedcode
+                                                            granite:id="aem-assets-show-embed-code"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            jcr:title="Embed Code"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/dialog"
+                                                            closable="{Boolean}true">
+                                                            <granite:data
+                                                                jcr:primaryType="nt:unstructured"
+                                                                assetpath="${empty requestPathInfo.suffix ? paramValues[&quot;item&quot;][0] : requestPathInfo.suffix}"/>
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <textarea
+                                                                    granite:rel="asset-embedcode-text-content"
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textarea"/>
+                                                            </items>
+                                                            <footer jcr:primaryType="nt:unstructured">
+                                                                <copytext
+                                                                    granite:id="asset-embedcode-copy-cmd"
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/button"
+                                                                    icon="attach"
+                                                                    iconSize="XS"
+                                                                    text="Copy Embed Code to clipboard"
+                                                                    variant="minimal">
+                                                                    <granite:rendercondition
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/renderconditions/simple"
+                                                                        expression="${!granite:containsIgnoreCase(header[&quot;User-Agent&quot;], &quot;iPad&quot;)}"/>
+                                                                </copytext>
+                                                                <dismiss
+                                                                    granite:rel="foundation-toggleable"
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/button"
+                                                                    text="Dismiss"
+                                                                    variant="primary">
+                                                                    <parentConfig
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        close="{Boolean}true"/>
+                                                                </dismiss>
+                                                            </footer>
+                                                        </dialogembedcode>
+                                                    </items>
+                                                </column>
+                                            </items>
+                                        </section>
+                                    </items>
+                                    <parentConfig jcr:primaryType="nt:unstructured">
+                                        <next
+                                            granite:class="foundation-wizard-control"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/button"
+                                            text="Process"
+                                            type="submit"
+                                            variant="primary">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                foundation-wizard-control-action="next"/>
+                                        </next>
+                                    </parentConfig>
+                                </metadata-step>
+                            </items>
+                        </wizard>
+                    </items>
+                </form>
+            </items>
+        </body>
+    </jcr:content>
+</jcr:root>

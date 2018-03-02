@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component immediate="true" name="com.azure.aemcode.core.filters.customfilter.AzureServletFilter" activate="activate" modified="activate">
+        <implementation class="com.azure.aemcode.core.filters.customfilter.AzureServletFilter"/>
+        <service servicefactory="false">
+            <provide interface="javax.servlet.Filter"/>
+        </service>
+        <property name="service.ranking" type="Integer" value="0"/>
+        <property name="sling.filter.scope" value="REQUEST"/>
+        <property name="property.osgi.test"/>
+        <property name="service.vendor" value="Adobe"/>
+        <property name="service.pid" value="com.azure.aemcode.core.filters.customfilter.AzureServletFilter"/>
+    </scr:component>
+</components>

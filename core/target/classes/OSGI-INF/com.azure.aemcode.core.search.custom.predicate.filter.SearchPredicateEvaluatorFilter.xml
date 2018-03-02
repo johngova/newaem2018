@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component name="com.azure.aemcode.core.search.custom.predicate.filter.SearchPredicateEvaluatorFilter" factory="com.day.cq.search.eval.PredicateEvaluator/searchFilter" activate="activate" modified="activate">
+        <implementation class="com.azure.aemcode.core.search.custom.predicate.filter.SearchPredicateEvaluatorFilter"/>
+        <service servicefactory="false">
+            <provide interface="com.day.cq.search.eval.PredicateEvaluator"/>
+        </service>
+        <property name="property.search.blocked.paths"/>
+        <property name="service.vendor" value="Adobe"/>
+        <property name="service.pid" value="com.azure.aemcode.core.search.custom.predicate.filter.SearchPredicateEvaluatorFilter"/>
+    </scr:component>
+</components>

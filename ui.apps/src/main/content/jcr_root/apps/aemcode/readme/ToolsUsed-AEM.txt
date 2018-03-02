@@ -1,0 +1,9 @@
+The Following are the tools most commonly used in AEM:
+
+1) AEM Server - Mandatory for development.
+2) Eclipse/IntelliJ(paid version) - For Development of OSGI related Code.
+3) Putty - to conect to the remote servers, mostly used to view logs. (should know basic linux commands)
+4) VPN (Virtual Private Network) - To connect to  client's network. (Mostly used for git access)
+5) GIT - Repository to store code.
+6) QC (Quality Center) / JIRA / Rally - Mostly used story & bug tracking tools.
+7) WIN SCP/ File Zilla - file transfer to and from remote system.

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/com.azure.aemcode.core.servlets.SearchServlet">
+    <OCD id="com.azure.aemcode.core.servlets.SearchServlet" name="%com.azure.aemcode.core.servlets.SearchServlet.name" description="%com.azure.aemcode.core.servlets.SearchServlet.description">
+        <AD id="property.search.paths" type="String" name="%com.azure.aemcode.core.servlets.SearchServlet.property.search.paths.name" description="%com.azure.aemcode.core.servlets.SearchServlet.property.search.paths.description" cardinality="2147483647"/>
+    </OCD>
+    <Designate pid="com.azure.aemcode.core.servlets.SearchServlet">
+        <Object ocdref="com.azure.aemcode.core.servlets.SearchServlet"/>
+    </Designate>
+</metatype:MetaData>

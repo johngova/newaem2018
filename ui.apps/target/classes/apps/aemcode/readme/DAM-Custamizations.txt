@@ -1,0 +1,19 @@
+
+NOTE: Everything is resourceType from AEM 6.0, so if anything needs to be customized the resourceType should be checked and the path of the url must be taken into consideration.
+		Next important thing is when you dont find any short url (ex: localhost:4502/assets.html : here assets.html is short url which is referred to "/libs/dam/gui/content/assets/jcr:content"), search for this url in crxde search and pick the link from /libs.
+		
+		All the panels in the AEM are designed based on the Page structure which contains - head, body, actions etc..
+		
+
+
+Assets Panel Customization:
+/libs/dam/gui/content/assets - this is the UI part of the console.
+jcr:content/
+	head - head section of the UI where clientlibs and parameters required for the panel are set.
+	body - this place is where the actual content exists. (this part may not exists for some panels).
+	actions - where the UI options ( which are highlight when an asset is selected ) are configured.
+	
+	
+	How to customize:
+		If anything needs to be customized, the above mentioned path must be changed.
+			- for adding any extra option when an asset is selected - add it under "actions/selection". add sling:resourceType property which refers to the granite component.

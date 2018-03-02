@@ -1,0 +1,12 @@
+===================================================================================================
+								Content Migration
+===================================================================================================
+
+Rules to be followed for asset/content migration:
+
+1) Validate what type of content to be migrated and is it supported by AEM (Dont Worry! Most of the formats will be supported).
+2) Check the source systems and validate if all the properties (metadata) can be mapped to AEM.
+3) Check how much content is to be migrated and how many days it will take to migrate the content.
+4) Write scripts to read the content from source systems [execute the scripts multiple times and check if any exceptions occur or any mismatch in data is found].
+5) Copy the assets to a server where the AEM exists and asset upload process will start.
+6) Use Existing tools like ACS commons - CSV importer to import content from a csv file. 

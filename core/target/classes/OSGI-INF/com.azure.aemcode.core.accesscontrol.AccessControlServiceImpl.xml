@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component name="com.azure.aemcode.core.accesscontrol.AccessControlServiceImpl">
+        <implementation class="com.azure.aemcode.core.accesscontrol.AccessControlServiceImpl"/>
+        <service servicefactory="false">
+            <provide interface="com.azure.aemcode.core.accesscontrol.AccessControlService"/>
+        </service>
+        <property name="service.vendor" value="Adobe"/>
+        <property name="service.pid" value="com.azure.aemcode.core.accesscontrol.AccessControlServiceImpl"/>
+        <reference name="repository" interface="org.apache.sling.jcr.api.SlingRepository" cardinality="1..1" policy="static" bind="bindRepository" unbind="unbindRepository"/>
+    </scr:component>
+</components>

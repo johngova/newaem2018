@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component name="AEM Code - Custom Workflow Process">
+        <implementation class="com.azure.aemcode.core.workflows.AzureWorkflowProcess"/>
+        <service servicefactory="false">
+            <provide interface="com.day.cq.workflow.exec.WorkflowProcess"/>
+        </service>
+        <property name="process.label" value="AEM Code - Custom Workflow Process"/>
+        <property name="service.vendor" value="Adobe"/>
+        <property name="service.pid" value="AEM Code - Custom Workflow Process"/>
+        <reference name="mimeTypeService" interface="org.apache.sling.commons.mime.MimeTypeService" cardinality="1..1" policy="static" bind="bindMimeTypeService" unbind="unbindMimeTypeService"/>
+        <reference name="store" interface="com.day.cq.dam.api.handler.store.AssetStore" cardinality="1..1" policy="static" bind="bindStore" unbind="unbindStore"/>
+        <reference name="jcrResolverFactory" interface="org.apache.sling.jcr.resource.JcrResourceResolverFactory" cardinality="1..1" policy="static" bind="bindJcrResolverFactory" unbind="unbindJcrResolverFactory"/>
+    </scr:component>
+</components>
