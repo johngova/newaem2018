@@ -6,7 +6,7 @@ public class FirstUseClass extends WCMUsePojo{
 	public String hi  =  "";
 	@Override
 	public void activate() throws Exception {
-        hi= "this is my first use class";
+        hi= "this is my first use class  written by gova";
 		
 	}
 }
